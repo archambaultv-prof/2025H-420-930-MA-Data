@@ -1,0 +1,20 @@
+[project]
+name = "Data"
+version = "0.1.0"
+description = "Structure de données vue dans le cours 2025H-420-930-MA-Data"
+readme = "README.md"
+authors = [
+    { name = "Vincent Archambault-Bouffard", email = "varchambaultbouffard@cmaisonneuve.qc.ca" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.0",
+]
