@@ -26,6 +26,7 @@ class Deque:
         if self.is_empty():
             raise IndexError("retrait d'un élément dans une deque vide")
         item = self._data[self._head]
+        self._data[self._head] = None
         self._head += 1
         # Nettoyage périodique
         if self._head > 50 and self._head > (len(self._data) - self._head):
