@@ -6,8 +6,8 @@ class Tree:
         # Liste des sous-arbres/enfants
         self.children: list[Tree] = []
 
-    # Ajoute un enfant à ce nœud
-    def add_child(self, subtree):
+    # Ajoute un sous-arbre à l'arbre
+    def add_subtree(self, subtree):
         if isinstance(subtree, Tree):
             self.children.append(subtree)
         else:
@@ -26,7 +26,7 @@ class Tree:
         """Retourne un nouvel arbre avec func appliquée à chaque valeur."""
         new_tree = Tree(func(self.value))
         for child in self.children:
-            new_tree.add_child(child.map(func))
+            new_tree.add_subtree(child.map(func))
         return new_tree
 
     # Recherche le premier nœud dont la valeur satisfait un prédicat
@@ -57,7 +57,7 @@ class Tree:
         
         node = cls(data["valeur"])
         for child_data in data["enfants"]:
-            node.add_child(cls.from_dict(child_data))
+            node.add_subtree(cls.from_dict(child_data))
         return node
 
 if __name__ == "__main__":
@@ -65,10 +65,10 @@ if __name__ == "__main__":
     root = Tree("racine")
     child1 = Tree("enfant1")
     child2 = Tree("enfant2")
-    child1.add_child(Tree("enfant1.1"))
-    child1.add_child(Tree("enfant1.2"))
-    root.add_child(child1)
-    root.add_child(child2)
+    child1.add_subtree(Tree("enfant1.1"))
+    child1.add_subtree(Tree("enfant1.2"))
+    root.add_subtree(child1)
+    root.add_subtree(child2)
 
     print(root)
     print(root.map(lambda x: x.upper()))

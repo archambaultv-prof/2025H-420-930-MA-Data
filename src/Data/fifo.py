@@ -14,6 +14,7 @@ class FIFO:
         if self.is_empty():
             raise IndexError("retrait d'un élément dans une file vide")
         item = self._data[self._head]
+        self._data[self._head] = None
         self._head += 1
         # Nettoyage périodique pour éviter la croissance infinie de la liste
         if self._head > 50 and self._head > len(self._data) // 2:
