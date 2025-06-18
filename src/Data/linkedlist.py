@@ -39,7 +39,7 @@ class LinkedList:
     # Insère un élément à l'index i
     def insert_mid(self, i: int, value):
         if i < 0 or i > self.size:
-            raise IndexError("Index out of bounds")
+            raise IndexError("Indice hors limites")
         new_node = LinkedListNode(value)
         if i == 0:
             self.insert_head(value)
@@ -56,7 +56,7 @@ class LinkedList:
     # Supprime et retourne la valeur en tête de liste
     def delete_head(self):
         if self.head is None:
-            raise IndexError("Cannot delete from an empty list")
+            raise IndexError("Impossible de supprimer d'une liste vide")
         removed_value = self.head.value
         self.head = self.head.next
         if self.head is None:
@@ -67,7 +67,7 @@ class LinkedList:
     # Supprime et retourne la valeur en queue de liste
     def delete_tail(self):
         if self.tail is None:
-            raise IndexError("Cannot delete from an empty list")
+            raise IndexError("Impossible de supprimer d'une liste vide")
         if self.head == self.tail:
             removed_value = self.head.value # type: ignore
             self.head = None
